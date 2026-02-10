@@ -1,4 +1,4 @@
-  :root {
+ :root {
   --bg: #f9f9f9;
   --text: #333;
   --accent: #00bcd4;
@@ -24,7 +24,7 @@ header {
   background: var(--card-bg);
   color: var(--text);
   padding: 1rem 2rem;
-  position: sticky;
+ 
   top: 0;
   z-index: 1000;
   display: flex;
@@ -105,6 +105,22 @@ body.dark .nav-buttons button {
   border-radius: 5px;
   display: inline-block;
 }
+.skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.skills-list li i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.skills-list li:hover {
+  transform: scale(1.08);
+}
 
 .skills-list {
   display: flex;
@@ -141,19 +157,7 @@ body.dark .nav-buttons button {
   transform: scale(1.05);
 }
 
-.gallery-grid {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
 
-.gallery-grid img {
-  width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
 
 form {
   display: flex;
@@ -258,9 +262,31 @@ body.dark {
 }
 
 #about.section fade-in {
-  background-color: #f0f4f8;
+  
   padding: 4rem 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+  background: var(--bg); 
 }
+#about p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+.section {
+  scroll-margin-top: 100px; /* height of navbar */
+}
+:root {
+  --nav-height: 100px;
+}
+
+.section {
+  scroll-margin-top: var(--nav-height);
+}
+
 /* Hero Section with Background */
 .hero-section {
   background: url('abstract-dark-background-with-connecting-dots-lines_939974-71.avif') no-repeat center center/cover;
@@ -323,4 +349,312 @@ body.dark {
   background: var(--bg);
   color: var(--text);
 }
+/* Tooltip base */
+.skills-list li {
+  position: relative;
+}
 
+/* Tooltip text */
+.skills-list li::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Tooltip arrow */
+.skills-list li::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--card-bg) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.skills-list li:hover::after,
+.skills-list li:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(135deg, rgba(0,188,212,0.08), transparent);
+}
+
+/* Form Card */
+.contact-form {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 450px;
+  margin: 2rem auto 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Subtitle */
+.contact-subtext {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* Input Group */
+.input-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+/* Inputs */
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Floating label */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: #888;
+  font-size: 0.9rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  padding: 0 6px;
+}
+
+/* Focus effect */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--accent);
+}
+
+/* Float label on focus or input */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+/* Send button */
+.send-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-btn i {
+  margin-right: 6px;
+}
+
+/* Button hover */
+.send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Input group with icons */
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: var(--accent);
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  background: transparent;
+  border: 2px solid #aaa;
+  border-radius: 8px;
+  color: var(--text);
+  outline: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  color: #888;
+  transition: 0.3s;
+  pointer-events: none;
+  background: transparent;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+/* Validation */
+.error {
+  border-color: red;
+}
+
+.success {
+  border-color: green;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.75rem;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+}
+
+/* Button & loader */
+.send-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+  margin: auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Status message */
+.form-status {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* Achievements Section */
+.achievements-subtext {
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Card */
+.achievement-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+/* .achievement-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 18px;
+  text-align: left;
+  background: linear-gradient(
+    135deg,
+    rgba(0,188,212,0.15),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+} */
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+}
+/* .achievement-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.35);
+} */
+
+/* Icons */
+.achievement-card i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* List */
+.achievement-card ul {
+  padding-left: 1rem;
+}
+
+.achievement-card li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
