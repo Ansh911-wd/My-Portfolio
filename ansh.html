@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,8 +22,7 @@
                     <button onclick="location.href='#about'"><i class="fas fa-user"></i> About</button>
                     <button onclick="location.href='#skills'"><i class="fas fa-tools"></i> Skills</button>
                     <button onclick="location.href='#projects'"><i class="fas fa-code"></i> Projects</button>
-                    <button onclick="location.href='#gallery'"><i class="fas fa-image"></i> Gallery</button>
-                    <button onclick="location.href='#contact'"><i class="fas fa-envelope"></i> Contact</button>
+                     <button onclick="location.href='#contact'"><i class="fas fa-envelope"></i> Contact</button>
 
 
                 </div>
@@ -70,21 +69,26 @@
     </section>
 
     <section id="skills" class="section fade-in">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>HTML, CSS, JavaScript</li>
-            <li>React, </li>
-            <li>Python, C++</li>
-            <li>Git & GitHub</li>
-            <li></li>
-        </ul>
-    </section>
+  <h2>Skills</h2>
+  
+  <ul class="skills-list">
+  <li data-tooltip="Advanced"><i class="fab fa-html5"></i> HTML5</li>
+  <li data-tooltip="Advanced"><i class="fab fa-css3-alt"></i> CSS3</li>
+  <li data-tooltip="Intermediate"><i class="fab fa-js"></i> JavaScript</li>
+  <li data-tooltip="Intermediate"><i class="fab fa-react"></i> React</li>
+  <li data-tooltip="Intermediate"><i class="fab fa-java"></i> Java</li>
+  <li data-tooltip="Intermediate"><i class="fas fa-code"></i> C++</li>
+  <li data-tooltip="Intermediate"><i class="fab fa-git-alt"></i> Git</li>
+  <li data-tooltip="Intermediate"><i class="fab fa-github"></i> GitHub</li>
+  <li data-tooltip="Beginner"><i class="fas fa-database"></i> MongoDB</li>
+</ul>
+</section>
 
     <section id="projects" class="section fade-in">
         <h2>Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>Portfolio Website</h3>
+                <h3>My Portfolio</h3>
                 <p>Built using HTML, CSS, JS to showcase my work.</p>
             </div>
             <div class="project-card">
@@ -92,33 +96,104 @@
                 <p> An online study platform using HTML,CSS,JavaScript</p>
             </div>
            
+            <div class="project-card">
+                <h3>E-Vote</h3>
+                <p> An online voting platform</p>
+            </div>
+            <div class="project-card">
+                <h3>EduScult</h3>
+                <p> An AI based custom content generation platform</p>
+            </div>
+           
         </div>
     </section>
+    <section id="achievements" class="section fade-in achievements-section">
+  <h2>Achievements & Certifications</h2>
+  <p class="achievements-subtext">My learning journey & accomplishments</p>
 
-    <section id="gallery" class="section fade-in">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-            <img src="img1.jpg" alt="Project Screenshot 1" />
-            <img src="img2.jpg" alt="Project Screenshot 2" />
-            <img src="img3.jpg" alt="Achievement Certificate" />
-        </div>
-    </section>
+  <div class="achievements-grid">
 
-    <section id="contact" class="section fade-in">
-        <h2>Contact Me</h2>
-        <form id="contact-form"
-            action="https://formsubmit.co/anshkrsingh321@gmail.com" method="POST">
-  <input type="text" name="name" required placeholder="Your Name" />
-  <input type="email" name="email" required placeholder="Your Email" />
-  <textarea name="message" required placeholder="Your Message"></textarea>
-  <button type="submit">Send</button>
+    <!-- Online Courses -->
+    <div class="achievement-card">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Online Courses</h3>
+      <ul>
+        <li>Web Development Bootcamp – Udemy</li>
+        <li>Java Programming – Coursera</li>
+        <li>React Basics – Self Learning</li>
+      </ul>
+    </div>
+
+    <!-- Hackathons -->
+    <div class="achievement-card">
+      <i class="fas fa-trophy"></i>
+      <h3>Hackathons</h3>
+      <ul>
+        <li>College Level Hackathon – Participant</li>
+        <li>Mini Hackathon (Web Apps)</li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div class="achievement-card">
+      <i class="fas fa-certificate"></i>
+      <h3>Certifications</h3>
+      <ul>
+        <li>HTML & CSS Certificate</li>
+        <li>Java Programming Certificate</li>
+        <li>Git & GitHub Basics</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section fade-in contact-section">
+  <h2>Contact Me</h2>
+  <p class="contact-subtext">Let’s build something amazing 🚀</p>
+
+  <form class="contact-form glass" id="contact-form"
+    action="https://formsubmit.co/anshkrsingh321@gmail.com"
+    method="POST">
+
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" name="name" id="name" required />
+      <label>Your Name</label>
+      <small class="error-text"></small>
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" name="email" id="email" required />
+      <label>Your Email</label>
+      <small class="error-text"></small>
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-comment"></i>
+      <textarea name="message" id="message" rows="4" required></textarea>
+      <label>Your Message</label>
+      <small class="error-text"></small>
+    </div>
+
+    <button type="submit" class="send-btn">
+      <span class="btn-text">Send Message</span>
+      <span class="loader"></span>
+    </button>
+
+    <p class="form-status"></p>
+  </form>
+</section>
+
+    
 
 
-        </form>
-    </section>
+  
+
 
     <footer>
-        <p>&copy; 2025 Ansh. Made with ❤️ by a B.Tech 3rd Year Student.</p>
+        <p>&copy; 2025 Ansh|Made with ❤️ by a B.Tech 3rd Year Student.</p>
     </footer>
 
     <script src="ansh.js"></script>
