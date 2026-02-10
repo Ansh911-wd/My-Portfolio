@@ -45,40 +45,6 @@ const btnText = document.querySelector(".btn-text");
 const loader = document.querySelector(".loader");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  let valid = true;
-  document.querySelectorAll(".input-group").forEach(group => {
-    const input = group.querySelector("input, textarea");
-    const error = group.querySelector(".error-text");
-
-    if (!input.value.trim()) {
-      valid = false;
-      input.classList.add("error");
-      error.textContent = "This field is required";
-    } else {
-      input.classList.remove("error");
-      input.classList.add("success");
-      error.textContent = "";
-    }
-  });
-
-  if (!valid) return;
-
-  // Loading state
-  btnText.style.display = "none";
-  loader.style.display = "block";
-
-  setTimeout(() => {
-    loader.style.display = "none";
-    btnText.style.display = "inline";
-
-    statusText.textContent = "✅ Message sent successfully!";
-    statusText.style.color = "green";
-    form.reset();
-  }, 2000);
-});
-form.addEventListener("submit", (e) => {
   let valid = true;
 
   document.querySelectorAll(".input-group").forEach(group => {
@@ -97,9 +63,20 @@ form.addEventListener("submit", (e) => {
   });
 
   if (!valid) {
-    e.preventDefault(); // ❌ stop only if invalid
+    e.preventDefault();
     return;
   }
 
-  // ✅ allow form to submit normally
+  
+  btnText.style.display = "none";
+  loader.style.display = "block";
+
+  statusText.textContent = "⏳ Sending message...";
+  statusText.style.color = "gray";
+
+  
 });
+
+
+
+
